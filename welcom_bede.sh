@@ -34,11 +34,12 @@ function set_docker_env() {
 	sudo docker exec -it ${docker_name} sh -c 'echo "export LC_ALL=en_US.UTF-8" >> /home/embeddedbuild/.bashrc'
 	sudo docker exec -it ${docker_name} sh -c 'echo "export LANG=en_US.UTF-8" >> /home/embeddedbuild/.bashrc'
 	sudo docker exec -it ${docker_name} sh -c 'echo "embeddedbuild:ubuntu" | chpasswd'
+	sudo docker exec -it -u ${user_uid}:${user_gid} -w /home/embeddedbuild ${docker_name} sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 function exec_docker() {
-	echo "sudo docker exec -it -u ${user_uid}:${user_gid} -w /home/embeddedbuild ${docker_name} /bin/bash"
-	sudo docker exec -it -u ${user_uid}:${user_gid} -w /home/embeddedbuild ${docker_name} /bin/bash
+	echo "sudo docker exec -it -u ${user_uid}:${user_gid} -w /home/embeddedbuild ${docker_name} /bin/zsh"
+	sudo docker exec -it -u ${user_uid}:${user_gid} -w /home/embeddedbuild ${docker_name} /bin/zsh
 }
 
 function kill_docker() {
