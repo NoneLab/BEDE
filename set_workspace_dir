@@ -4,12 +4,12 @@
 # Wriiten by Nakada Tokumei #
 #############################
 
-echo 'echo $(pwd) > $HOME/.embedded_builder/directory'
+echo 'echo $(pwd) > $HOME/.none_builder/directory'
 
-if [ ! -f $HOME/.embedded_builder/directory ]; then
-    mkdir $HOME/.embedded_builder/
-    mkdir -p $HOME/.embedded_builder/pkg
-    touch $HOME/.embedded_builder/directory
+if [ ! -f $HOME/.none_builder/directory ]; then
+    mkdir $HOME/.none_builder/
+    mkdir -p $HOME/.none_builder/pkg
+    touch $HOME/.none_builder/directory
 fi
 
-echo $(pwd) > $HOME/.embedded_builder/directory
+echo $(pwd) > $HOME/.none_builder/directory

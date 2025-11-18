@@ -11,14 +11,14 @@ RUN apt update && apt install -y sudo \
 		xz-utils debianutils python3-git libsdl1.2-dev xterm zstd tar python-is-python3 vim \
 	&& 	apt install -y lib32stdc++6 libncurses6 checkinstall libssl-dev libsqlite3-dev libgdbm-dev \
 		libc6-dev libbz2-dev libffi-dev libgmp3-dev libmpfr-dev texinfo flex bison curl locales ssh \
-		clang-20 llvm-20 lld-20 lldb-20 cmake ninja-build zsh 
+		clang-20 llvm-20 lld-20 lldb-20 cmake ninja-build zsh libncurses-dev libelf-dev bc flex
 
 RUN locale-gen en_US.UTF-8
 RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
-RUN echo "embedded_builder" > /etc/hostname
+RUN echo "none_builder" > /etc/hostname
 
-RUN echo "embeddedbuild ALL=NOPASSWD: ALL" >> /etc/sudoers
+RUN echo "nonebuild ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 RUN mkdir /var/run/sshd
 
